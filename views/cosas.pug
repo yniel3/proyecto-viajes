@@ -1,0 +1,13 @@
+extends ./layout/index
+
+block contenido
+    h2= nombrePagina
+    a(href="#") en y cosas
+    hr
+    label(for="serafin") No se aun que hacer aqui 
+    input(type="checkbox", name="serafin")
+    div
+        each item in items
+            p= item.titulo
+            span= item.precio
+            a(href=`cosas/${item.slug}`) Mas Info.

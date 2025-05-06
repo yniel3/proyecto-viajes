@@ -1,0 +1,25 @@
+:root {
+    --font-uno: "Special Gothic Expanded One";
+    --font-dos: "Quicksand";
+    /* esperar para cargar mas cosas  */
+}
+
+/* Formateo de los elementos */
+* , *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100dvh;
+    font-family: var(--font-uno), var(--font-dos), sans-serif;
+    background-image: linear-gradient(pink, yellow);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+img {
+    height: 30%;
+}
