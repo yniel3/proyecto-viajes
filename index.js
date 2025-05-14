@@ -19,6 +19,8 @@ app.use((req, res, next) => {
     res.locals.nombreSitio = "mySitio";
     next()
 })
+// agregar body parser para leer los datos del formulario
+app.use(express.urlencoded({extended: true}));
 //cargando Recusos y Estilos en la carpeta public
 app.use(express.static("public"));
 

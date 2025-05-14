@@ -2,5 +2,21 @@ extends ./layout/index
 
 block contenido
     h2= nombrePagina
-    h2 comentarios de personas
-    img(src="./img/imagen-1.jpg", alt="")
+
+    div.alertas
+        if(errores)
+            each error in errores
+                div.alert
+                    p= error.mensaje
+
+    form(action="/testimoniales" method="POST")
+        div
+            label(for="nombre") Nombre:
+            input(type="text", name="nombre", id="nombre", value= nombre)
+        div
+            label(for="email") Email:
+            input(type="email", name="email", id="email", value= email)
+        div
+            label(for="mensaje") Mensaje:
+            textarea(name="mensaje", id="mensaje")= mensaje
+        button(type="submit") Enviar

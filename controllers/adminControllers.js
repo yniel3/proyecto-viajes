@@ -10,7 +10,6 @@ const inicio = (req, res ) => {
 const cosas = async (req, res ) => {
     //calgar cosas de la DB
     const items = await Viaje.findAll();
-    console.log(items)
 
     res.render("cosas", {
         nombrePagina: "Cosas",
@@ -21,7 +20,7 @@ const cosas = async (req, res ) => {
 const cosaDetalle = async (req, res ) => {
     const { slug } = req.params;
     try {
-        const resultado = await Viaje.findOne({where : { slug }});
+        const resultado = await Viaje.findOne({where : { slug: slug }});
         res.render("cosa", {
             nombrePagina: "Informacion Viajes",
             resultado
