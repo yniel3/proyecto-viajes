@@ -1,5 +1,6 @@
 import express from "express";
-import dotenv from "dotenv"
+import dotenv from "dotenv" // dotenv no es necesario usando la funcion de abajo.
+// process.loadEnvFile()
 import miDB from "./config/db.js";
 import router from "./routes/adminRoutes.js";
 
@@ -20,7 +21,7 @@ app.use((req, res, next) => {
     next()
 })
 // agregar body parser para leer los datos del formulario
-app.use(express.urlencoded({extended: true}));
+app.use( express.urlencoded( {extended: true} ) );
 //cargando Recusos y Estilos en la carpeta public
 app.use(express.static("public"));
 
