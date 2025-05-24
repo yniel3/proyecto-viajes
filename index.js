@@ -1,6 +1,6 @@
 import express from "express";
-import dotenv from "dotenv" // dotenv no es necesario usando la funcion de abajo.
-// process.loadEnvFile()
+// import dotenv from "dotenv" // dotenv no es necesario usando la funcion de abajo.
+process.loadEnvFile()
 import miDB from "./config/db.js";
 import router from "./routes/adminRoutes.js";
 
@@ -17,7 +17,7 @@ app.set("view engine", "pug");
 app.use((req, res, next) => {
     const year = new Date();
     res.locals.yearActual = year.getFullYear();
-    res.locals.nombreSitio = "mySitio";
+    res.locals.nombreSitio = "mielnut.";
     next()
 })
 // agregar body parser para leer los datos del formulario

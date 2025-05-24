@@ -1,22 +1,41 @@
 extends ./layout/index
 
 block contenido
-    h2= nombrePagina
+    .contenedorTesti
+        .direct
+            h4 Lee nuestros reseñas de otras personas!
+            p unete a nuestra
+                span  aventura ya.
+            hr
+        .wrappTesti
+            each testimonial in testimoniales
+                articulo.comentario
+                    svg(xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewbox='0 0 24 24' fill='none' stroke='#eb8056' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round')
+                        path(d='M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4')
+                    p.parrafo #{testimonial.mensaje}
+                    p.nombreUser  #
+                        span #{testimonial.nombre}
 
-    div.alertas
-        if(errores)
-            each error in errores
-                div.alert
-                    p= error.mensaje
+        .contForm
+            .alertas
+                if(errores)
+                    each error in errores
+                        div.alert
+                            p= error.alerta
+                    script.
+                        setTimeout(() => {
+                            document.querySelector(".alertas").remove();
+                        }, 3000);
 
-    form(action="/testimoniales" method="POST")
-        div
-            label(for="nombre") Nombre:
-            input(type="text", name="nombre", id="nombre", value= nombre)
-        div
-            label(for="email") Email:
-            input(type="email", name="email", id="email", value= email)
-        div
-            label(for="mensaje") Mensaje:
-            textarea(name="mensaje", id="mensaje")= mensaje
-        button(type="submit") Enviar
+            form(action="/testimoniales" method="POST").formTest
+                h4 Dejanos tus comentarios aqui.
+                div.wrappInput
+                    label(for="nombre") Nombre:
+                    input(type="text" autofocus="" name="nombre" id="nombre", value= nombre)
+                div.wrappInput
+                    label(for="email") Email:
+                    input(type="email" name="email" id="email", value= email)
+                div.wrappInput
+                    label(for="mensaje") Mensaje:
+                    textarea(name="mensaje" id="mensaje")= mensaje
+                button(type="submit").btnSend Enviar

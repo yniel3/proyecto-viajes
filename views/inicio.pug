@@ -1,11 +1,13 @@
 extends ./layout/index
 
 block contenido
-    main
-        h2= nombrePagina
-        p= cuco
-        img(src="./img/imagen-1.jpg", alt="")
-        ul
-            li Honesto 
-            li Cool
-            li tranquilo
+    main.hero
+        .textos
+            h1 Viajes que siempre recordaras.
+            p lorem dolor sit amet consectetur adipisicing elit. Quas maxime nihil nemo possimus ut ad, commodi itaque doloribus.
+        a(href="/viajes" class="btn-cta") Ver oportunidades
+    .bannerOferta
+        .contenedorCupon
+            h2 %33 de Descuento menos.
+            p este mes tenemos muchas ofertas que
+                span  no te puedes perder

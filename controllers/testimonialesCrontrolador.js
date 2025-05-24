@@ -1,26 +1,30 @@
-import { Testimonial } from "../models/testimoniales.js";
+import { Testimonial } from "../models/Testimoniales.js";
 
 const guardarTestimonial = async (req, res) => {
     //validar el formulario
     const { nombre, email, mensaje } = req.body;
+    //crear arreglo de errores para mostrar en la vista
     const errores = [];
     if (nombre.trim() === "") {
-        errores.push({ alert: "Agrega tu nombre" });
+        errores.push({ alerta: "el nombre no puede ir vacio" });
     }
     if (email.trim() === "") {
-        errores.push({ alerta: "Agrega tu correo" });
+        errores.push({ alerta: "Correo no debe ir vacio" });
     }
     if (mensaje.trim() === "") {
-        errores.push({ alerta: "Agrega tu mensaje" });
+        errores.push({ alerta: "Escribe un mensaje." });
     }
     if (errores.length > 0) {
+        //consulta los testimoniales existentes
+        const testimoniales = await Testimonial.findAll();
         // Mostrar la vista con errores
         res.render("testimoniales", {
-            nombrePagina: "Testimoniales",
+            nombrePagina: "testimoniales",
             errores,
             nombre,
             email,
-            mensaje
+            mensaje,
+            testimoniales
         });
     } else {
         // Almacenar en la base de datos
@@ -31,6 +35,7 @@ const guardarTestimonial = async (req, res) => {
                 mensaje
             });
             res.redirect("/testimoniales");
+            
         } catch (error) {
             console.log(error);
         }

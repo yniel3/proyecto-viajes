@@ -1,8 +1,14 @@
-header 
-    h1 LOGO.1
-    nav
-        a(href="/") Inicio
-        a(href="/cosas") Cosas
-        a(href="/nosotros") Nosotros
-        a(href="/testimoniales") Testimoniales
-    hr
+header.header
+    figure.logo
+        img(src="/img/logo.png", alt="logo")
+
+    
+    nav.navbar
+        a(href="/" class= nombrePagina === "inicio" ? "select" : normal).enlace inicio
+        a(href="/viajes" class= nombrePagina === "viajes" ? "select" : normal).enlace viajes
+        a(href="/nosotros" class= nombrePagina === "nosotros" ? "select" : normal).enlace nosotros
+        a(href="/testimoniales" class= nombrePagina === "testimoniales" ? "select" : normal).enlace testimoniales
+
+    label(class="abrir" for="abrir")
+        input(type="checkbox" id="abrir")
+    

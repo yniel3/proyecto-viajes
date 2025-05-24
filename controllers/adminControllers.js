@@ -1,53 +1,75 @@
 import { Viaje } from "../models/Viajes.js";
+import { Testimonial } from "../models/Testimoniales.js";
 
-const inicio = (req, res ) => {
-    const cuco = "Mi cunhado";
-    res.render("inicio", {
-        nombrePagina: "Inicio"
-    });
+const inicio = async (req, res ) => {
+    //calgar cosas de la DB
+    const items = await Viaje.findAll({ limit: 3});
+    try {
+        res.render("inicio", {
+            nombrePagina: "inicio",
+            items
+        });
+    } catch (error) {
+        
+    }
 };
 
-const cosas = async (req, res ) => {
+const viajes = async (req, res ) => {
     //calgar cosas de la DB
     const items = await Viaje.findAll();
-
-    res.render("cosas", {
-        nombrePagina: "Cosas",
+    // renderizar pagina con todos los viajes
+    res.render("viajes", {
+        nombrePagina: "viajes",
         items
     });
 };
 
-const cosaDetalle = async (req, res ) => {
+const viajeDetalles = async (req, res ) => {
     const { slug } = req.params;
     try {
         const resultado = await Viaje.findOne({where : { slug: slug }});
-        res.render("cosa", {
-            nombrePagina: "Informacion Viajes",
-            resultado
+        const testimoniales = await Testimonial.findAll({ limit: 3});
+        res.render("viajes-detalles", {
+            nombrePagina: "Informacion viaje",
+            resultado,
+            testimoniales
         })
     } catch (error) {
         console.log(error)
     }
 };
 
-const nosotros = (req, res ) => {
-    const persona = "Soy una humano en un oceano de humanos"
-    res.render('nosotros', {
-        persona,
-        nombrePagina: "Nosotros"
-    });
+const nosotros = async (req, res ) => {
+    try {
+
+        const testimoniales = await Testimonial.findAll({ limit: 3});
+        const items = await Viaje.findAll({ limit: 3});
+        res.render('nosotros', {
+            nombrePagina: "nosotros",
+            testimoniales,
+            items
+        });
+    } catch (error) {
+        
+    }
 };
 
-const testimoniales = (req, res ) => {
-    res.render("testimoniales", {
-        nombrePagina: "Testimoniales"
-    });
+const testimoniales = async (req, res ) => {
+    try {
+        const testimoniales = await Testimonial.findAll();
+        res.render("testimoniales", {
+            nombrePagina: "testimoniales",
+            testimoniales
+        });
+    } catch (error) {
+        console.log(error)
+    }
 };
 
 export {
     inicio,
-    cosas,
-    cosaDetalle,
+    viajes,
+    viajeDetalles,
     nosotros,
     testimoniales
 }

@@ -10,5 +10,5 @@ export const Testimonial = miDB.define("testimoniales", {
     },
     mensaje: {
         type: Sequelize.STRING
-    },
+    }
 })

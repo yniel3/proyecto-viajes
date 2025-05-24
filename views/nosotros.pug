@@ -1,10 +1,20 @@
 extends ./layout/index
 
+
 block contenido
-    h2= nombrePagina
-    p trato de parecer cool
-    hr
-    ul
-        li 
-            a(href="#") Culitos ricos
-        ol= nombrePagina
+    main.nosotros 
+        .contenedorUs
+            h2 Mas sobre quienes Somos
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde esse quae alias eius, eveniet natus optio possimus molestias quaerat, reiciendis eligendi illo velit itaque voluptates, quibusdam sequi. Beatae, iusto delectus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat aliquid libero porro necessitatibus, minima at quae velit ab veritatis incidunt! Error, facere vitae recusandae nam voluptates aut aliquam quaerat fugiat?
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde esse quae alias eius, eveniet natus optio possimus molestias quaerat, reiciendis eligendi illo velit itaque voluptates, quibusdam sequi. Beatae, iusto delectus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos quod incidunt deserunt porro quae molestias fugiat ratione, aperiam obcaecati possimus, velit sunt. Repellendus rem enim voluptatibus incidunt quaerat ea hic? Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic id esse soluta rerum nostrum quas ex incidunt. Tempore nesciunt, culpa iusto repellendus nulla quis dignissimos, voluptatem deserunt sunt vitae omnis.
+            img(src="img/img-us.jpg", alt="foto de nostros :D", loading="lazy")
+        if(testimoniales)
+            h4 Comentarios de Otras personas
+            .testUs
+                each testimonial in testimoniales
+                    article.coment
+                        svg(xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewbox='0 0 24 24' fill='none' stroke='#eb8056' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round')
+                            path(d='M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4')
+                        p.parrafo #{testimonial.mensaje}
+                        p.nombreUser  #
+                            span #{testimonial.nombre}
