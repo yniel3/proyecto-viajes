@@ -28,6 +28,6 @@ app.use(express.static("public"));
 app.use('/', router);
 
 app.listen(PORT, () => {
-    console.log(`Bro hazlo. De pana! ${PORT}`)
+    console.log(`Conectado el puerto ${PORT}`)
 });
 
