@@ -1,16 +1,16 @@
-# ✈️ Plataforma de viajes
+#  Plataforma de viajes
 
 Aplicación web desarrollada con Node.js, Express y Pug que permite explorar destinos turísticos, dejar comentarios y filtrar viajes por categorías. Toda la información se gestiona a través de una base de datos MySQL utilizando Sequelize como ORM.
 
-## 🌍 Características principales
+##  Características principales
 
-- 🗺️ Múltiples páginas con destinos turísticos
-- 💬 Sistema de Testimoniales, los usuarios puedes dejar sus testimonios.
-- 🔎 Filtro de viajes por categoría y comentarios
-- 🧠 Conexión a base de datos MySQL con Sequelize
-- 🎨 Plantillas dinámicas con Pug
-- ❌ La aplicacion no cuenta con validacion. Por lo que cualquier persona que visite puede comentar
-## 🛠️ Tecnologías utilizadas
+-  Múltiples páginas con destinos turísticos
+-  Sistema de Testimoniales, los usuarios puedes dejar sus testimonios.
+-  Filtro de viajes por categoría y comentarios
+-  Conexión a base de datos MySQL con Sequelize
+-  Plantillas dinámicas con Pug
+-  La aplicacion no cuenta con validacion. Por lo que cualquier persona que visite puede comentar
+##  Tecnologías utilizadas
 
 | Tecnología   | Uso principal                          |
 |--------------|----------------------------------------|
@@ -20,13 +20,13 @@ Aplicación web desarrollada con Node.js, Express y Pug que permite explorar des
 | CSS        | Estilos resposive para movil y escritorio            |
 | Sequelize    | ORM para interactuar con MySQL         |
 
-## 📦 Instalación
+##  Instalación
 
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/yniel3/proyecto-viajes.git
 
-## 💁 Información importante
+##  Información importante
 
 Este proyecto para funcionar necesita un archivo .env para funcionar y una bases de datos MySQL
 
